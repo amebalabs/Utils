@@ -4,13 +4,13 @@ import Combine
 
 @available(iOS 13.0, *)
 final class RemoteImage: BindableObject {
-    let didChange = PassthroughSubject<RemoteImage,Never>()
+    let willChange = PassthroughSubject<RemoteImage,Never>()
     private let url: URL
     private let placeholderImage: UIImage? = nil
 
     var image: UIImage? = nil {
-        didSet {
-            didChange.send(self)
+        willSet {
+            willChange.send(self)
         }
     }
 
