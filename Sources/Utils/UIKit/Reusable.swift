@@ -1,9 +1,9 @@
-protocol Reusable {
+public protocol Reusable {
     static var reusableIdentifier: String { get }
 }
 
 extension Reusable {
-    static var reusableIdentifier: String {
+    public static var reusableIdentifier: String {
         return String(describing: self)
     }
 }
