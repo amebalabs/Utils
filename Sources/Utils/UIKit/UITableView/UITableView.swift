@@ -5,7 +5,7 @@ extension UITableView {
         register(cellClass, forCellReuseIdentifier: cellClass.reusableIdentifier)
     }
 
-    func deququeReusableCell<Cell: UITableViewCell>(forIndexPath indexPath: IndexPath) -> Cell {
+    func dequeueReusableCell<Cell: UITableViewCell>(forIndexPath indexPath: IndexPath) -> Cell {
         guard let cell = self.dequeueReusableCell(withIdentifier: Cell.reusableIdentifier, for: indexPath) as? Cell
             else {fatalError("Fatal error for cell at \(indexPath)")
         }
