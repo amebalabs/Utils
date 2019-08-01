@@ -1,6 +1,6 @@
 import UIKit
 
-extension UITableView {
+public extension UITableView {
     func registerCell<Cell: UITableViewCell>(_ cellClass: Cell.Type) {
         register(cellClass, forCellReuseIdentifier: cellClass.reusableIdentifier)
     }

@@ -1,3 +1,3 @@
 import UIKit
 
-public extension UITableViewCell: Reusable {}
+extension UITableViewCell: Reusable {}
