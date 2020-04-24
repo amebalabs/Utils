@@ -1,4 +1,12 @@
 public extension Sequence {
+    func sorted<T:Comparable>(by attribute: KeyPath<Element, T>) -> [Element] {
+        return sorted(by: { $0[keyPath: attribute] < $1[keyPath: attribute]})
+    }
+    
+    func sortedDesc<T:Comparable>(by attribute: KeyPath<Element, T>) -> [Element] {
+        return sorted(by: { $0[keyPath: attribute] > $1[keyPath: attribute]})
+    }
+
     func sorted<T:Comparable>(by attribute: KeyPath<Element, T?>) -> [Element] {
         return sorted(by: { (lhs, rhs) in
             if let lhs = lhs[keyPath: attribute], let rhs = rhs[keyPath: attribute] {
@@ -19,7 +27,7 @@ public extension Sequence {
             return false
         })
     }
-    
+
     func sortedDesc<T:Comparable>(by attribute: KeyPath<Element, T?>) -> [Element] {
         return sorted(by: { (lhs, rhs) in
             if let lhs = lhs[keyPath: attribute], let rhs = rhs[keyPath: attribute] {
