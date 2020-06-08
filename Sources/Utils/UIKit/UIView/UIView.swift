@@ -18,4 +18,19 @@ extension UIView {
             trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -insets.right).isActive = true
         }
     }
+
+    func addAtCenter(view: UIView) {
+        addAtCenter(view: view, heightMultiplier: 0.7, widthMultiplier: 0.8)
+    }
+
+    func addAtCenter(view: UIView, heightMultiplier: CGFloat, widthMultiplier: CGFloat) {
+        self.addSubview(view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        view.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+
+        self.addConstraint(NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: heightMultiplier, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: widthMultiplier, constant: 0))
+
+    }
 }
