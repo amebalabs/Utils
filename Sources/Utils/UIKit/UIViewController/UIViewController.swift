@@ -78,3 +78,19 @@ extension UIViewController {
         })
     }
 }
+
+public extension UIViewController {
+    @objc var isPresentedAsPopover: Bool {
+        var currentView: UIView? = self.view
+
+        while currentView != nil {
+            let classNameOfCurrentView = NSStringFromClass(type(of: currentView!)) as NSString
+            let searchString = "UIPopoverView"
+            if classNameOfCurrentView.range(of: searchString, options: .caseInsensitive).location != NSNotFound {
+                return true
+            }
+            currentView = currentView?.superview
+        }
+        return false
+    }
+}
