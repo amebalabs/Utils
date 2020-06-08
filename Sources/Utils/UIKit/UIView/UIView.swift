@@ -1,8 +1,8 @@
 import UIKit
 
 @available(iOS 9.0, *)
-extension UIView {
-    public func pinToSuperview(with insets: UIEdgeInsets = .zero, edges: UIRectEdge = .all) {
+public extension UIView {
+    func pinToSuperview(with insets: UIEdgeInsets = .zero, edges: UIRectEdge = .all) {
         guard let superview = superview else { return }
         translatesAutoresizingMaskIntoConstraints = false
         if edges.contains(.top) {
