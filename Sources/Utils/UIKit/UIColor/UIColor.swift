@@ -11,7 +11,7 @@ public extension UIColor {
 }
 
 //MARK: Light/Dark variants
-extension UIColor {
+public extension UIColor {
     func getLightVarian() -> UIColor {
         let traitCollection = UITraitCollection(userInterfaceStyle: .light)
         return self.resolvedColor(with: traitCollection)
