@@ -1,5 +1,6 @@
 import UIKit
 
+//MARK: Random Color
 public extension UIColor {
     static var random: UIColor {
         return UIColor(red: .random(in: 0...1),
@@ -9,7 +10,20 @@ public extension UIColor {
     }
 }
 
+//MARK: Light/Dark variants
+extension UIColor {
+    func getLightVarian() -> UIColor {
+        let traitCollection = UITraitCollection(userInterfaceStyle: .light)
+        return self.resolvedColor(with: traitCollection)
+    }
 
+    func getDarkVarian() -> UIColor {
+        let traitCollection = UITraitCollection(userInterfaceStyle: .dark)
+        return self.resolvedColor(with: traitCollection)
+    }
+}
+
+//MARK: From\To HEX
 public extension UIColor {
     convenience init?(hex: String) {
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
