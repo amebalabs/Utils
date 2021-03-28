@@ -30,6 +30,10 @@ public class LRUCache<Key: Hashable, Value>   {
         list.moveNodeTowardsHead(node: node)
         return node.value
     }
+    
+    public func remove(key: Key) {
+        data.removeValue(forKey: key)
+    }
 
     public func isValid(key: Key) -> Bool {
         return data[key] != nil
